@@ -1,1 +1,47 @@
-Login
+<mat-card>
+
+    <mat-progress-bar *ngIf="showProgress" mode="indeterminate"></mat-progress-bar>
+
+
+    <mat-card-content>
+        <form>
+
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <input #name (keyup)="onChangeName(name)" matInput placeholder="Eduardo">
+                <mat-hint>{{_counter}} letras</mat-hint>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>País de nacimiento</mat-label>
+                <mat-select>
+                    <mat-option value="">Peru</mat-option>
+                    <mat-option value="">Chile</mat-option>
+                    <mat-option value="">Colombia</mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <div class="cont-slider-count">
+                <span>Cantidad de viajes realizados</span>
+                <mat-slider
+                (change)="onChangeSlider($event)"
+                thumbLabel
+                [displayWith]="formatLabel"
+                min="1"
+                max="100"></mat-slider>
+            </div>
+            <div class="check-box">
+                <span>Aceptas recibir notificaciones</span>
+                <mat-checkbox (change)="onChangeCheckbox($event)" [indeterminate]="true"></mat-checkbox>
+            </div>
+    
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button (click)="registerUser()" >Aceptar</button>
+    </mat-card-actions>
+
+
+
+</mat-card>

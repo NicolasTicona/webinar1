@@ -1,0 +1,26 @@
+mat-card{
+    width: 50vw;
+    margin: 20px auto;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card-actions{
+    text-align: center;
+}
+
+.cont-slider-count{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.check-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

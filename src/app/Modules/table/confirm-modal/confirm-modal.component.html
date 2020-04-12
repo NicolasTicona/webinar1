@@ -1,0 +1,7 @@
+<h2 mat-dialog-title>¿Estás seguro que deseas eliminar a {{data.usuario}}?</h2>
+<mat-dialog-content>
+    Recuerda que sí confirmas, se borrará toda la información referente a este usuario.
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button (click)="emitDelete.emit()">Eliminar</button>
+</mat-dialog-actions>

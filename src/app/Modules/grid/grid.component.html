@@ -1,1 +1,35 @@
-<p>grid works!</p>
+
+<div class="menu">
+    <button mat-fab color="primary" [matMenuTriggerFor]="menu">
+        <mat-icon>
+            menu
+        </mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu" >
+        <button mat-menu-item *ngFor="let user of users" (click)="$event.stopPropagation()">
+            <mat-slide-toggle (change)="setVisibleUser(user, $event)" [checked]="user.active" >{{user.pais}}</mat-slide-toggle>
+        </button>
+    </mat-menu>
+
+</div>
+<mat-grid-list [cols]="showUsers" rowHeight="1:1" gutterSize="10px" >
+    <div class="cont-tile" *ngFor="let user of users">
+        <mat-grid-tile *ngIf="user.active">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{user.usuario}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image [src]="'https://images.unsplash.com/photo-1586399254879-2dbf9ec57f71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'">
+                <mat-card-content>
+                    <mat-chip-list [ngSwitch]="user.pais">
+                        <mat-chip *ngSwitchCase="'Peru'" class="bg-red">{{user.pais}}</mat-chip>
+                        <mat-chip *ngSwitchCase="'Chile'" class="bg-blue">{{user.pais}}</mat-chip>
+                        <mat-chip *ngSwitchCase="'Colombia'" class="bg-yellow">{{user.pais}}</mat-chip>
+                      </mat-chip-list>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </div>
+
+</mat-grid-list>

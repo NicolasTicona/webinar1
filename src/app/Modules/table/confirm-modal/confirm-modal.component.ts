@@ -1,0 +1,21 @@
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
+@Component({
+  selector: 'app-confirm-modal',
+  templateUrl: './confirm-modal.component.html',
+  styleUrls: ['./confirm-modal.component.scss']
+})
+export class ConfirmModalComponent implements OnInit {
+
+  @Output() emitDelete = new EventEmitter();
+
+  constructor(public _dialogRef: MatDialogRef<ConfirmModalComponent>,
+              @Inject(MAT_DIALOG_DATA) private data: any) { }
+
+  ngOnInit() {
+  }
+
+
+
+}
